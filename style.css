@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Julee&family=Junge&family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Julee&family=Junge&family=Roboto:wght@300;400;500;700&display=swap");
 
 * {
     margin: 0;
@@ -8,31 +8,32 @@
 
 body {
     overflow-x: hidden;
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
     color: #1a1a1a;
-    line-height: 1.6;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-/* --- Navigation --- */
+/* --- Навігація (Nav) --- */
 .nav {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("./photos/navbar_bg.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), url("./photos/navbar_bg.jpg");
     background-size: cover;
     background-position: center;
     height: 100px;
     display: flex;
     align-items: center;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav__conatiner {
-    width: 90%;
     max-width: 1200px;
+    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -40,49 +41,80 @@ html {
 }
 
 .nav__conatiner img {
-    height: 70px;
+    height: 60px;
+    width: auto;
     border-radius: 50%;
 }
 
 .nav__conatiner a {
-    font-family: "Roboto", sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
     text-decoration: none;
     color: #333;
-    transition: 0.3s;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    transition: 0.3s;
 }
 
 .nav__conatiner a:hover {
     color: #960707;
-    transform: translateY(-2px);
 }
 
-/* Social Links */
 .nav__links {
     display: flex;
-    gap: 1.5rem;
+    gap: 15px;
+    align-items: center;
 }
 
 #instagram svg, #telegram svg {
-    width: 35px;
-    height: 35px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s ease;
 }
 
 #instagram:hover svg, #telegram:hover svg {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 5px rgba(150, 7, 7, 0.5));
+    transform: scale(1.1);
 }
 
-/* --- Sections General --- */
-section, .firstSection, .secondSection, .thirdSection, .fourthSection {
-    padding: 80px 20px;
+/* --- Бургер та Панель --- */
+#burgerMenu {
+    display: none; /* З'явиться в медіа-запитах для телефонів */
 }
 
-/* --- First Section --- */
+#leftPanel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: #111;
+    z-index: 2000;
+    transform: translateX(-100%); /* Повністю ховаємо зліва */
+    transition: transform 0.4s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 20px;
+}
+
+#leftPanel.active {
+    transform: translateX(0);
+}
+
+.panel__item {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 25px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 10px;
+}
+
+/* --- Секції (Загальне) --- */
+.firstSection, .secondSection, .thirdSection, .fourthSection, .footer {
+    width: 100%;
+    padding: 80px 5%;
+}
+
+/* --- Перша секція (Відео + Текст) --- */
 .firstSection {
     display: flex;
     justify-content: center;
@@ -92,155 +124,215 @@ section, .firstSection, .secondSection, .thirdSection, .fourthSection {
 }
 
 .firstSection video {
-    border-radius: 20px;
-    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    max-width: 100%;
 }
 
 .firstSection__content__title {
-    font-size: 42px;
-    font-weight: 700;
+    font-size: 36px;
     margin-bottom: 20px;
-    color: #000;
-    border-left: 5px solid #960707;
+    border-left: 4px solid #960707;
     padding-left: 15px;
 }
 
 .firstSection__content__caption {
-    max-width: 500px;
     font-size: 18px;
-    color: #444;
+    font-family: "Actor", sans-serif;
+    color: #333;
+    max-width: 600px;
 }
 
-/* --- Services (Second Section) --- */
+/* --- Друга секція (Прайс) --- */
 .secondSection {
     background: url("./photos/bg2.jpg") center/cover;
 }
 
-.secondSection__title, .thirdSection__title, .fourthSection__title {
-    font-size: 36px;
+.secondSection__title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 60px;
     text-transform: uppercase;
-    margin-bottom: 50px;
-    position: relative;
-}
-
-.secondSection__title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: #960707;
-    margin: 10px auto;
 }
 
 .first__item, .second__item, .third__item {
     display: flex;
+    justify-content: center;
     align-items: center;
     gap: 50px;
-    margin-bottom: 60px;
-    padding: 30px;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(5px);
-    border-radius: 15px;
+    max-width: 1100px;
+    margin: 0 auto 80px auto;
+}
+
+.second__item {
+    flex-direction: row-reverse;
 }
 
 .first__item img, .second__item img, .third__item img {
-    border-radius: 10px;
+    width: 400px;
+    height: 400px;
     object-fit: cover;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.first__item__price, .second__item__price, .third__item__price {
+    flex: 1;
+    max-width: 500px;
+}
+
+.first__item__price__title, .second__item__price__title, .third__item__price__title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: #960707;
+}
+
+.first__item__price__container, 
+.second__item__price__container, 
+.third__item__price__container {
+    display: flex;
+    justify-content: space-between; /* Назва зліва, ціна справа */
+    gap: 20px;
 }
 
 .first__item__price__container p, 
 .second__item__price__container p, 
 .third__item__price__container p {
-    font-size: 20px;
-    line-height: 2;
+    font-family: "Jua", sans-serif;
+    font-size: 18px;
+    line-height: 2.2; /* Вирівнює рядки */
 }
 
-/* --- Master Section --- */
+/* --- Третя секція (Майстер) --- */
 .thirdSection {
-    background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("./photos/bg3.jpg") center/cover;
+    background: url("./photos/bg3.jpg") center/cover;
+}
+
+.thirdSection__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 .thirdSection__content img {
+    width: 350px;
     border-radius: 50%;
-    border: 8px solid white;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+    border: 10px solid white;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* --- Portfolio --- */
+.thirdSection__content__text h3 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.thirdSection__content__text__info {
+    font-size: 17px;
+    max-width: 500px;
+    color: #444;
+}
+
+/* --- Четверта секція (Роботи) --- */
+.fourthSection {
+    background: url("./photos/bg4.jpg") center/cover;
+    text-align: center;
+}
+
+.fourthSection__content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
 .fourthSection__content img {
     width: 300px;
     height: 400px;
     object-fit: cover;
-    border-radius: 15px;
-    transition: 0.5s;
+    border-radius: 10px;
+    transition: 0.4s;
 }
 
 .fourthSection__content img:hover {
-    transform: translateY(-15px) scale(1.05);
+    transform: translateY(-10px);
 }
 
-/* --- Footer & Form --- */
+/* --- Футер та Карта --- */
 .footer {
     background: #111;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
     flex-wrap: wrap;
+    color: white;
 }
 
 form {
     background: #1a1a1a;
-    padding: 40px;
-    border-radius: 15px;
-    width: 400px;
-    border: 1px solid #333;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
 }
 
 form label {
-    color: #ccc;
+    display: block;
+    margin-bottom: 8px;
     font-size: 14px;
-    text-transform: uppercase;
+    color: #ccc;
 }
 
 form input, form textarea {
     width: 100%;
-    background: #252525;
-    border: 1px solid #444;
-    color: white;
     padding: 12px;
-    margin-top: 5px;
+    margin-bottom: 20px;
+    background: #222;
+    border: 1px solid #333;
+    color: white;
+    border-radius: 5px;
 }
 
-form input:focus {
-    outline: none;
-    border-color: #960707;
+form button {
+    width: 100%;
+    padding: 12px;
+    background: #960707;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-button {
-    background-color: #960707;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 10px;
-}
-
-button:hover {
-    background-color: #7a0606;
-    transform: scale(1.02);
+form button:hover {
+    background: #7a0606;
 }
 
 .maps {
-    border-radius: 15px;
-    filter: grayscale(0.5) contrast(1.2);
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    border-radius: 10px;
+    filter: invert(90%) hue-rotate(180deg); /* Темна карта для стилю */
 }
 
-/* --- Burger Menu Fix --- */
-#leftPanel {
-    background-color: #111;
-    color: white;
-    padding: 40px;
-    z-index: 2000;
-}
-
-.panel__item {
-    color: white;
+/* Адаптивність для планшетів та телефонів */
+@media (max-width: 992px) {
+    .firstSection, .first__item, .second__item, .third__item, .thirdSection__content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .first__item__price__container {
+        text-align: left;
+    }
+    .nav__conatiner a {
+        display: none; /* Ховаємо меню, показуємо бургер */
+    }
+    #burgerMenu {
+        display: block;
+    }
 }
