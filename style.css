@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Roboto:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Roboto:wght@400;700&display=swap");
 
 * {
     margin: 0;
@@ -6,193 +6,154 @@
     box-sizing: border-box;
 }
 
-/* Прибираємо горизонтальну прокрутку, яка виникає через панель */
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    /* Це прибере білу смугу справа і "кривий" скрол */
     overflow-x: hidden; 
+    width: 100%;
 }
 
-/* --- Навігація: Центруємо вміст усередині --- */
+/* Центрувальник для всіх секцій */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* Навігація */
 .nav {
-    background-color: #fff;
-    height: 100px;
-    display: flex;
-    justify-content: center; /* Центруємо контейнер */
-    align-items: center;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .nav__conatiner {
-    width: 90%;
     max-width: 1200px;
+    margin: 0 auto;
+    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20px;
 }
 
-/* --- Спільне налаштування для ВСІХ секцій --- */
-.firstSection, .secondSection, .thirdSection, .fourthSection, .footer {
+/* Секції */
+section, .firstSection, .secondSection, .thirdSection, .fourthSection {
+    width: 100%;
+    padding: 60px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* Центрує заголовки та контент по горизонталі */
-    justify-content: center;
-    width: 100%;
-    padding: 80px 20px;
-    text-align: center;      /* Центрує текст за замовчуванням */
-}
-
-/* --- Перша секція: Відео + Текст --- */
-.firstSection {
-    flex-direction: row;     /* Ставимо в рядок */
-    gap: 60px;
-    background: #f9f9f9;
-}
-
-.firstSection__content {
-    text-align: left;        /* Текст усередині свого блоку зліва */
-    max-width: 600px;
-}
-
-/* --- Секція Послуг (Прайс) --- */
-.secondSection__service {
-    width: 100%;
-    max-width: 1100px;
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-}
-
-.first__item, .second__item, .third__item {
-    display: flex;
-    flex-direction: row;     /* Рядок: фото + ціни */
     align-items: center;
-    justify-content: center;
-    gap: 50px;
-    width: 100%;
 }
 
+/* Заголовки по центру */
+h2, .secondSection__title, .thirdSection__title, .fourthSection__title {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+    font-size: 32px;
+}
+
+/* Гнучкі блоки (Контент) */
+.firstSection, .first__item, .second__item, .third__item, .thirdSection__content, .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Для другого блоку послуг (міняємо місцями) */
 .second__item {
-    flex-direction: row-reverse; /* Фото справа */
+    flex-direction: row-reverse;
 }
 
-.first__item img, .second__item img, .third__item img {
-    width: 400px;
-    height: 400px;
-    object-fit: cover;
+/* Зображення */
+img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
-    flex-shrink: 0;
 }
 
-/* Блок з цінами: Робимо його рівним */
-.first__item__price, .second__item__price, .third__item__price {
-    flex: 1;
-    max-width: 500px;
-    text-align: left;
-}
-
-.first__item__price__container, 
-.second__item__price__container, 
-.third__item__price__container {
-    display: flex;
-    justify-content: space-between; /* Назва зліва, ціна справа */
-    width: 100%;
-}
-
-/* --- Секція Майстра --- */
-.thirdSection__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 60px;
-    max-width: 1100px;
-    width: 100%;
-}
-
-.thirdSection__content img {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid #eee;
-}
-
-.thirdSection__content__text {
-    text-align: left;
-    max-width: 500px;
-}
-
-/* --- Секція Робіт --- */
-.fourthSection__content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;         /* Перенос карток на новий рядок */
-    justify-content: center;
-    gap: 30px;
-    width: 100%;
-}
-
-.fourthSection__content img {
+.firstSection video {
     width: 300px;
-    height: 400px;
-    object-fit: cover;
     border-radius: 10px;
 }
 
-/* --- Футер: Форма + Карта --- */
-.footer {
-    flex-direction: row;
-    background: #111;
-    color: #fff;
-    gap: 50px;
-    align-items: flex-start;
+.first__item img, .second__item img, .third__item img, .thirdSection__content img {
+    width: 400px;
 }
 
-form, .maps {
+/* Текстові блоки */
+.firstSection__content, .first__item__price, .second__item__price, .third__item__price, .thirdSection__content__text {
     flex: 1;
-    max-width: 450px;
+    text-align: left;
 }
 
-/* --- ВИПРАВЛЕННЯ ЧОРНОЇ ПАНЕЛІ (Left Panel) --- */
+.first__item__price__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+/* Чорна панель (Left Panel) */
 #leftPanel {
     position: fixed;
     top: 0;
     left: 0;
     width: 300px;
     height: 100vh;
-    background: #000;
-    z-index: 9999;
-    transform: translateX(-100%) !important; /* ЗАВЖДИ СХОВАНА ЗЛІВА */
-    transition: transform 0.4s ease-in-out;
+    background: #111;
+    z-index: 2000;
+    /* Ховаємо її вліво */
+    transform: translateX(-100%); 
+    transition: 0.4s ease;
     display: flex;
     flex-direction: column;
-    padding: 60px 30px;
+    padding: 40px;
 }
 
-/* Цей клас додається через JS */
-#leftPanel.open {
-    transform: translateX(0) !important;
+/* Стан, коли панель відкрита */
+#leftPanel.active {
+    transform: translateX(0);
 }
 
-/* --- Адаптивність (для телефонів) --- */
-@media (max-width: 900px) {
+.panel__item {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+/* Футер */
+.footer {
+    background: #111;
+    color: white;
+    padding: 60px 20px;
+}
+
+form, .maps {
+    flex: 1;
+}
+
+/* Мобільна версія */
+@media (max-width: 850px) {
     .firstSection, .first__item, .second__item, .third__item, .thirdSection__content, .footer {
-        flex-direction: column !important; /* Все в одну колонку */
+        flex-direction: column !important;
         text-align: center;
     }
-    
     .first__item img, .second__item img, .third__item img, .thirdSection__content img {
         width: 100%;
-        max-width: 350px;
-        height: auto;
-    }
-    
-    .first__item__price, .second__item__price, .third__item__price, .thirdSection__content__text {
-        text-align: center;
+        max-width: 400px;
     }
 }
