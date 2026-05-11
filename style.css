@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Roboto:wght@300;400;700&display=swap");
 
 * {
     margin: 0;
@@ -7,153 +7,133 @@
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fff;
-    /* Це прибере білу смугу справа і "кривий" скрол */
-    overflow-x: hidden; 
-    width: 100%;
+    overflow-x: hidden;
 }
 
-/* Центрувальник для всіх секцій */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Навігація */
+/* nav */
 .nav {
-    width: 100%;
-    background: #fff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-image: url("./photos/navbar_bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 120px;
+    display: flex;
+    align-items: center;
 }
 
 .nav__conatiner {
-    max-width: 1200px;
+    width: 1320px;
+    max-width: 95%; /* щоб не вилазило на малих екранах */
     margin: 0 auto;
-    height: 90px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
 }
 
-/* Секції */
-section, .firstSection, .secondSection, .thirdSection, .fourthSection {
-    width: 100%;
-    padding: 60px 0;
+.nav__conatiner a {
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    text-decoration: none;
+    color: black;
+}
+
+/* burger Menu & Left Panel - ВИПРАВЛЕНО */
+#leftPanel {
+    position: fixed;
+    top: 0;
+    left: 0; /* притискаємо до лівого краю */
+    width: 400px;
+    max-width: 80%;
+    height: 100vh;
+    background-color: white;
+    transform: translateX(-100%); /* ховаємо ПОВНІСТЮ вліво */
+    transition: transform 0.5s ease-in-out;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    z-index: 9999;
 }
 
-/* Заголовки по центру */
-h2, .secondSection__title, .thirdSection__title, .fourthSection__title {
-    text-align: center;
-    width: 100%;
-    margin-bottom: 40px;
-    font-size: 32px;
-}
-
-/* Гнучкі блоки (Контент) */
-.firstSection, .first__item, .second__item, .third__item, .thirdSection__content, .footer {
+/* firstsection */
+.firstSection {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 85px;
+    width: 100%; /* замість 100vw */
+    background-image: url("./photos/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding: 72px 20px;
 }
 
-/* Для другого блоку послуг (міняємо місцями) */
+/* secondSection */
+.secondSection {
+    width: 100%;
+    background-image: url("./photos/bg2.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 50px;
+}
+
+.first__item, .second__item, .third__item {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Центруємо фото і текст */
+    gap: 100px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
 .second__item {
     flex-direction: row-reverse;
 }
 
-/* Зображення */
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
+.first__item img, .second__item img, .third__item img {
+    width: 440px;
+    height: 440px;
+    object-fit: cover;
 }
 
-.firstSection video {
-    width: 300px;
-    border-radius: 10px;
+.first__item__price, .second__item__price, .third__item__price {
+    width: 640px;
 }
 
-.first__item img, .second__item img, .third__item img, .thirdSection__content img {
-    width: 400px;
-}
-
-/* Текстові блоки */
-.firstSection__content, .first__item__price, .second__item__price, .third__item__price, .thirdSection__content__text {
-    flex: 1;
-    text-align: left;
-}
-
-.first__item__price__container {
+/* Прайс: назва зліва, ціна справа */
+.first__item__price__container, .second__item__price__container, .third__item__price__container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
+}
+
+/* thirdSection (Майстер) */
+.thirdSection {
     width: 100%;
+    background-image: url("./photos/bg3.jpg");
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 72px;
 }
 
-/* Чорна панель (Left Panel) */
-#leftPanel {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 100vh;
-    background: #111;
-    z-index: 2000;
-    /* Ховаємо її вліво */
-    transform: translateX(-100%); 
-    transition: 0.4s ease;
+.thirdSection__content {
     display: flex;
-    flex-direction: column;
-    padding: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 85px;
+    max-width: 1200px;
+    margin: 0 auto; /* ЦЕНТРУЄМО БЛОК МАЙСТРА */
 }
 
-/* Стан, коли панель відкрита */
-#leftPanel.active {
-    transform: translateX(0);
-}
-
-.panel__item {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/* Футер */
+/* footer */
 .footer {
-    background: #111;
-    color: white;
-    padding: 60px 20px;
-}
-
-form, .maps {
-    flex: 1;
-}
-
-/* Мобільна версія */
-@media (max-width: 850px) {
-    .firstSection, .first__item, .second__item, .third__item, .thirdSection__content, .footer {
-        flex-direction: column !important;
-        text-align: center;
-    }
-    .first__item img, .second__item img, .third__item img, .thirdSection__content img {
-        width: 100%;
-        max-width: 400px;
-    }
+    width: 100%;
+    background-image: url("./photos/bg5.jpg");
+    background-size: cover;
+    padding: 72px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 68px;
 }
