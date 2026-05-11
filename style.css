@@ -1,139 +1,423 @@
-@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Actor&family=Jua&family=Julee&family=Junge&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 html {
-    scroll-behavior: smooth;
+	scroll-behavior: smooth;
 }
 
 /* nav */
 .nav {
-    background-image: url("./photos/navbar_bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 120px;
-    display: flex;
-    align-items: center;
+	background-image: url("/photos/navbar_bg.jpg");
+	/* background-repeat: no-repeat; */
+	background-size: cover;
+	background-position: center;
+	height: 120px;
 }
 
 .nav__conatiner {
-    width: 1320px;
-    max-width: 95%; /* щоб не вилазило на малих екранах */
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	width: 1320px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .nav__conatiner a {
-    font-family: "Roboto", sans-serif;
-    font-size: 24px;
-    text-decoration: none;
-    color: black;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	text-decoration: none;
+	color: black;
+}
+.nav__conatiner a:hover {
+	color:rebeccapurple;
 }
 
-/* burger Menu & Left Panel - ВИПРАВЛЕНО */
+
+/* social */
+.nav__links{
+	display: flex;
+	gap: 1rem;
+}
+#instagram,
+#telegram {
+	display: block;
+	width: 55px;
+	height: 55px;
+}
+
+/* burger Menu */
+#burgerMenu {
+	display: none;
+}
 #leftPanel {
-    position: fixed;
-    top: 0;
-    left: 0; /* притискаємо до лівого краю */
-    width: 400px;
-    max-width: 80%;
-    height: 100vh;
-    background-color: white;
-    transform: translateX(-100%); /* ховаємо ПОВНІСТЮ вліво */
-    transition: transform 0.5s ease-in-out;
-    display: flex;
-    flex-direction: column;
-    z-index: 9999;
+	position: fixed;
+	top: 0;
+	width: 400px;
+	height: 100vh;
+	background-color: white;
+	transform: translateX(-200vw);
+	transition: transform 0.5s ease-in-out;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+
+#closePanel {
+	margin: 20px;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+}
+
+.panel__item {
+	margin: 20px;
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+	transition: all 200ms ease-in-out;
+}
+
+.panel__item:hover {
+	color: #960707;
 }
 
 /* firstsection */
 .firstSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 85px;
-    width: 100%; /* замість 100vw */
-    background-image: url("./photos/bg1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    padding: 72px 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 85px;
+	width: 100vw;
+	background-image: url("./photos/bg1.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	padding-top: 72px;
+	padding-bottom: 72px;
+}
+
+.firstSection__content__title {
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+	margin-bottom: 12px;
+}
+
+.firstSection__content__caption {
+	color: #000;
+	font-family: "Actor", sans-serif;
+	font-size:18px;
+	font-weight: 400;
 }
 
 /* secondSection */
 .secondSection {
-    width: 100%;
-    background-image: url("./photos/bg2.jpg");
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 50px;
+	width: 100vw;
+	background-image: url("./photos/bg2.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
-.first__item, .second__item, .third__item {
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Центруємо фото і текст */
-    gap: 100px;
-    width: 100%;
-    margin-bottom: 50px;
+.secondSection__title {
+	color: #000;
+	text-align: center;
+	font-family: "Actor", sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+	padding-top: 36px;
+	padding-bottom: 64px;
 }
 
+.secondSection__service {
+	display: flex;
+	flex-direction: column;
+}
+
+/* fisrt item */
+.first__item {
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+	width: 100vw;
+}
+
+.first__item img {
+	width: 440px;
+	height: 440px;
+}
+
+.first__item__price {
+	width: 640px;
+}
+
+.first__item__price__title {
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 44px;
+}
+
+.first__item__price__container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.first__item__price__container p {
+	color: #000;
+	font-family: "Jua", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* second item */
 .second__item {
-    flex-direction: row-reverse;
+	display: flex;
+	justify-content: center;
+	flex-direction: row-reverse;
+	gap: 100px;
+	width: 100vw;
+	padding-top: 72px;
+	padding-bottom: 72px;
 }
 
-.first__item img, .second__item img, .third__item img {
-    width: 440px;
-    height: 440px;
-    object-fit: cover;
+.second__item img {
+	width: 440px;
+	height: 440px;
 }
 
-.first__item__price, .second__item__price, .third__item__price {
-    width: 640px;
+.second__item__price {
+	width: 640px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }
 
-/* Прайс: назва зліва, ціна справа */
-.first__item__price__container, .second__item__price__container, .third__item__price__container {
-    display: flex;
-    justify-content: space-between; 
+.second__item__price__title {
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	padding-bottom: 44px;
 }
 
-/* thirdSection (Майстер) */
+.second__item__price__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.second__item__price__container p {
+	color: #000;
+	font-family: "Jua", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* third item */
+.third__item {
+	display: flex;
+	justify-content: center;
+	gap: 100px;
+	width: 100vw;
+	padding-bottom: 72px;
+}
+
+.third__item img {
+	width: 440px;
+	height: 440px;
+}
+
+.third__item__price {
+	width: 640px;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.third__item__price__title {
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	margin-bottom: 44px;
+}
+
+.third__item__price__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.third__item__price__container p {
+	color: #000;
+	font-family: "Jua", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* thirdSection */
 .thirdSection {
-    width: 100%;
-    background-image: url("./photos/bg3.jpg");
-    background-size: cover;
-    background-position: center;
-    padding-bottom: 72px;
+	width: 100vw;
+	background-image: url("./photos/bg3.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-bottom: 72px;
+}
+
+.thirdSection__title {
+	color: #000;
+	text-align: center;
+	font-family: "Actor", sans-serif;
+	font-size: 28px;
+	font-weight: 400;
+	padding-top: 36px;
+	padding-bottom: 64px;
 }
 
 .thirdSection__content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 85px;
-    max-width: 1200px;
-    margin: 0 auto; /* ЦЕНТРУЄМО БЛОК МАЙСТРА */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 85px;
 }
 
-/* footer */
-.footer {
-    width: 100%;
-    background-image: url("./photos/bg5.jpg");
-    background-size: cover;
-    padding: 72px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 68px;
+.thirdSection__content__text h3 {
+	color: #000;
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	font-weight: 400;
+	margin-bottom: 12px;
 }
+
+.thirdSection__content__text__color {
+	color: #960707;
+	font-family: "Actor", sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	margin-bottom: 8px;
+}
+
+.thirdSection__content__text__info {
+	color: #000;
+	font-family: "Actor", sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+}
+
+/* fourthSection */
+.fourthSection {
+	width: 100vw;
+	background-image: url("./photos/bg4.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-bottom: 72px;
+}
+
+.fourthSection__title {
+	color: #000;
+	text-align: center;
+	font-family: "Actor", sans-serif;
+	font-size: 28px;
+	font-weight: 400;
+	padding-top: 36px;
+	padding-bottom: 64px;
+}
+
+.fourthSection__content {
+	display: flex;
+	justify-content: center;
+	gap: 64px;
+}
+
+/* Footer */
+.footer {
+	width: 100vw;
+	background-image: url("./photos/bg5.jpg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding-bottom: 72px;
+	padding-top: 72px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 68px;
+}
+
+.footer__title {
+	color: #000;
+	text-align: center;
+	font-family: "JejuHallasan", sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+}
+
+/* form */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+input,
+textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 333ms ease;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+.maps {
+	width: 350px;
+	height: 446px;
+} 
